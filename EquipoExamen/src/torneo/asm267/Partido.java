@@ -1,7 +1,9 @@
 package torneo.asm267;
 
 import java.util.Date;
-
+/**
+ * Partidos jugados
+ */
 public class Partido {
     private String equipoLocal;
     private String equipoVisitante;

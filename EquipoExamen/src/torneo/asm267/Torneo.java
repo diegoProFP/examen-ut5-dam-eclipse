@@ -4,18 +4,29 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-//Poner comentario de la clase, con la descripción de qué es lo que hace  
-//De autor poned vuestro email de educaMadrid. 
-//La version de la clase es la 1.5, y existe desde la 1.0
+/**
+ * Clase que almacena los partidos jugados en cada torneo
+ * @author asm267@educa.madrid.org
+ * @version 1.5
+ * @since 1.0
+ */
 public class Torneo {
-	
+	/**
+	 * Nombre del torneo
+	 */
     private String nombre;
+    /**
+     * Lista con los partidos del torneo
+     */
     private List<Partido> partidos = new ArrayList<>();
-
-    // Poner descripcion, parametros de entrada, valor de retorno, y en qué condiciones se produce la excepción. Además que pueda
- 	// referenciar tanto a las clases Partido y DatosInvalidosException
- 	//Existe desde la version 1.0
+    
+    /**
+     * Método para añadir Partidos al array
+     * @param nuevo objeto de tipo Partido
+     * @return devuelve true si se ha realizado correctamente
+     * @throws DatosInvalidosException si alguno de los datos del Partido son nulos
+     * @since 1.0
+     */
     public boolean agregarPartido(Partido nuevo) throws DatosInvalidosException {
         if (nuevo == null || nuevo.getEquipoLocal() == null || nuevo.getEquipoVisitante() == null) {
             throw new DatosInvalidosException("El partido o alguno de los equipos es nulo");
@@ -29,8 +40,13 @@ public class Torneo {
         return false;
     }
 
-    // Poner descripcion, parametros de entrada, valor de retorno.
-   	//Existe desde la version 1.0
+    /**
+     * Busca un partido mediante los equipos que lo jugaron
+     * @param local nombre del equipo local (String)
+     * @param visitante nombre del equipo visitante (String)
+     * @return devuelve true si encuentra el partido o false si no lo encuentra
+     * @since 1.0
+     */
     public boolean encontrarPartidoPorEquipos(String local, String visitante) {
         for (Partido partido : partidos) {
             if (partido.getEquipoLocal().equalsIgnoreCase(local) && partido.getEquipoVisitante().equalsIgnoreCase(visitante)) {
@@ -40,9 +56,13 @@ public class Torneo {
         return false;
     }
 
-    // Este metodo está deprecado porque se ha hecho uno mejor, y el que lo sustituye es el
-   	// encontrarPartidos(Date fecha, String equipoLocal, String equipoVisitante)
-   	//Existe desde la version 1.2
+    /**
+     * Metodo para encontrar partidos por fecha de realización
+     * @since 1.2
+     * @deprecated replaced by {@link #encontrarPartidos(Date, String, String)}
+     * @param fecha fecha de realizacion del partido (tipo Date)
+     * @return true si lo encuentra y false si no
+     */
     public boolean encontrarPartidoPorFecha(Date fecha) {
         for (Partido partido : partidos) {
             if (partido.getFechaPartido().equals(fecha)) {
@@ -52,8 +72,14 @@ public class Torneo {
         return false;
     }
 
-    // Poner descripcion, parametros de entrada, valor de retorno.
- 	//Existe desde la version 1.5
+    /**
+     * Metodo para encontrar partidos
+     * @since 1.5
+     * @param fecha Fecha de realizacion del partido (tipo Date)
+     * @param equipoLocal Nombre del equipo local (String)
+     * @param equipoVisitante Nombre del equipo visitante (String)
+     * @return ArrayList con los resultados obtenidos
+     */
     public List<Partido> encontrarPartidos(Date fecha, String equipoLocal, String equipoVisitante) {
         List<Partido> resultados = new ArrayList<>();
         for (Partido partido : partidos) {

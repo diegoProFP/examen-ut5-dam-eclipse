@@ -1,5 +1,8 @@
 package torneo.asm267;
 
+/**
+ * Jugadores del torneo
+ */
 public class Jugador {
     private String nombre;
     private String deporte;
