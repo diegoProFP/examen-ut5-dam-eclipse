@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * La clase torneo tiene los datos sobre el torneo y como funciona.
+ * @author jorge.sanzmartin@educa.madrid.org
+ * @version 1.5.0
+ * @since 1.0
+ */
 //Poner comentario de la clase, con la descripción de qué es lo que hace  
 //De autor poned vuestro email de educaMadrid. 
 //La version de la clase es la 1.5, y existe desde la 1.0
@@ -13,6 +18,15 @@ public class Torneo {
     private String nombre;
     private List<Partido> partidos = new ArrayList<>();
 
+    /**
+     * 
+     * @param nuevo (hace referencia a un nuevo partido)
+     * @return boolean
+     * @throws DatosInvalidosException (son datos invalidos)
+     * @since  1.0
+     * @see Partido
+     * @see DatosInvalidosException
+     */
     // Poner descripcion, parametros de entrada, valor de retorno, y en qué condiciones se produce la excepción. Además que pueda
  	// referenciar tanto a las clases Partido y DatosInvalidosException
  	//Existe desde la version 1.0
@@ -28,7 +42,13 @@ public class Torneo {
 
         return false;
     }
-
+    
+    /**
+     * 
+     * @param local (es el equipo local)
+     * @param visitante (es el equipo visitante)
+     * @return boolean
+     */
     // Poner descripcion, parametros de entrada, valor de retorno.
    	//Existe desde la version 1.0
     public boolean encontrarPartidoPorEquipos(String local, String visitante) {
@@ -40,6 +60,11 @@ public class Torneo {
         return false;
     }
 
+    /**
+     * @deprecated
+     * @param fecha (es la fecha de los partidos)
+     * @return boolean
+     */
     // Este metodo está deprecado porque se ha hecho uno mejor, y el que lo sustituye es el
    	// encontrarPartidos(Date fecha, String equipoLocal, String equipoVisitante)
    	//Existe desde la version 1.2
@@ -52,6 +77,13 @@ public class Torneo {
         return false;
     }
 
+    /**
+     * 
+     * @param fecha (es la fecha de los partidos)
+     * @param equipoLocal (es el equipo que juega en su campo)
+     * @param equipoVisitante (es el equipo que juega en el campo del rival)
+     * @since 1.5
+     */
     // Poner descripcion, parametros de entrada, valor de retorno.
  	//Existe desde la version 1.5
     public List<Partido> encontrarPartidos(Date fecha, String equipoLocal, String equipoVisitante) {
