@@ -1,4 +1,4 @@
-package torneo.base;
+package torneo.estebanmartinruiz;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +8,9 @@ import java.util.List;
 //Poner comentario de la clase, con la descripción de qué es lo que hace  
 //De autor poned vuestro email de educaMadrid. 
 //La version de la clase es la 1.5, y existe desde la 1.0
+@autor Esteban
+@version 1.0
+
 public class Torneo {
 	
     private String nombre;
@@ -16,6 +19,10 @@ public class Torneo {
     // Poner descripcion, parametros de entrada, valor de retorno, y en qué condiciones se produce la excepción. Además que pueda
  	// referenciar tanto a las clases Partido y DatosInvalidosException
  	//Existe desde la version 1.0
+    @autor Esteban 
+    @version 1.0;
+
+    @descripcion /
     public boolean agregarPartido(Partido nuevo) throws DatosInvalidosException {
         if (nuevo == null || nuevo.getEquipoLocal() == null || nuevo.getEquipoVisitante() == null) {
             throw new DatosInvalidosException("El partido o alguno de los equipos es nulo");
@@ -31,6 +38,9 @@ public class Torneo {
 
     // Poner descripcion, parametros de entrada, valor de retorno.
    	//Existe desde la version 1.0
+    @autor Esteban 
+    @version 1.0;
+
     public boolean encontrarPartidoPorEquipos(String local, String visitante) {
         for (Partido partido : partidos) {
             if (partido.getEquipoLocal().equalsIgnoreCase(local) && partido.getEquipoVisitante().equalsIgnoreCase(visitante)) {
@@ -43,6 +53,8 @@ public class Torneo {
     // Este metodo está deprecado porque se ha hecho uno mejor, y el que lo sustituye es el
    	// encontrarPartidos(Date fecha, String equipoLocal, String equipoVisitante)
    	//Existe desde la version 1.2
+    @autor Esteban
+    @version 1.2
     public boolean encontrarPartidoPorFecha(Date fecha) {
         for (Partido partido : partidos) {
             if (partido.getFechaPartido().equals(fecha)) {
@@ -54,6 +66,10 @@ public class Torneo {
 
     // Poner descripcion, parametros de entrada, valor de retorno.
  	//Existe desde la version 1.5
+    @autor Esteban
+    @version 1.5;
+    
+
     public List<Partido> encontrarPartidos(Date fecha, String equipoLocal, String equipoVisitante) {
         List<Partido> resultados = new ArrayList<>();
         for (Partido partido : partidos) {
